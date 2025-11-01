@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organização Solidária</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <h1>Organização Solidária</h1>
+
+  <nav id="menu">
+    <button id="btn-menu" aria-label="Abrir menu">&#9776;</button>
+    <ul>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="projetos.html">Projetos ▾</a>
+        <ul class="submenu">
+          <li><a href="#">Voluntariado</a></li>
+          <li><a href="#">Doações</a></li>
+        </ul>
+      </li>
+      <li><a href="cadastro.html">Cadastro</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+
+<main 
+class="container">
+  <section class="col-6">
+    <h2>Sobre Nós</h2>
+    <p>Somos uma organização dedicada a ajudar pessoas e comunidades através de projetos sociais e voluntariado.</p>
+  </section>
+
+  <section class="col-6">
+    <h2>Contato</h2>
+    <p>Email: contato@organizacaosolidaria.com.ong.br</p>
+    <p>Telefone: (61) 9156-6595</p>
+  </section>
+</main>
+
+
+  <footer>
+    <p>&copy; 2025 Organização Solidária</p>
+          <img src="img/feche-o-trabalho-em-equipe-voluntario-de-pessoas-colocando-o-dedo-nas-maos-em-forma-de-estrela-juntospilha-de-maosunidade-e-trabalho-em-equipe-no-dia-mundial-meio-ambiente_11zon.jpg" height="25%" width="25%" alt="logo" />
+
+  </footer>
+</body>
+<script>
+  const btn = document.getElementById('btn-menu');
+  const menu = document.querySelector('nav ul');
+
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('ativo');
+  });
+</script>
+
+</html>
