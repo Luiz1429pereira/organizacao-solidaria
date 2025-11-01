@@ -1,37 +1,24 @@
-// js/formulario.js
 document.addEventListener('DOMContentLoaded', () => {
-  const form = document.querySelector('form');
+  const form = document.getElementById('form-cadastro');
   if (!form) return;
 
-  const alertaSucesso = document.querySelector('.alerta.sucesso');
-  const alertaErro = document.querySelector('.alerta.erro');
+  const alertaSucesso = form.querySelector('.alerta.sucesso');
+  const alertaErro = form.querySelector('.alerta.erro');
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    alertaSucesso.style.display = 'none';
-    alertaErro.style.display = 'none';
-
-    const nome = form.nome.value.trim();
-    const email = form.email.value.trim();
-    const cpf = form.cpf.value.trim();
-    const telefone = form.telefone.value.trim();
-
-    // Validação de consistência
-    const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    const cpfValido = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test(cpf);
-    const telefoneValido = /^\(\d{2}\)\s?\d{4,5}-\d{4}$/.test(telefone);
-
-    if (!nome || !emailValido || !cpfValido || !telefoneValido) {
+    if (!form.checkValidity()) {
       alertaErro.style.display = 'block';
+      alertaSucesso.style.display = 'none';
       return;
     }
 
     const dados = {
-      nome,
-      email,
-      cpf,
-      telefone,
+      nome: form.nome.value,
+      email: form.email.value,
+      cpf: form.cpf.value,
+      telefone: form.telefone.value,
       nascimento: form.nascimento.value,
       endereco: form.endereco.value,
       cep: form.cep.value,
@@ -40,12 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     salvarCadastro(dados);
-    alertaSucesso.style.display = 'block';
-    form.reset();
 
-    setTimeout(() => {
-      alertaSucesso.style.display = 'none';
-      alertaErro.style.display = 'none';
-    }, 3000);
+    alertaSucesso.style.display = 'block';
+    alertaErro.style.display = 'none';
+    form.reset();
   });
 });
